@@ -150,7 +150,7 @@ app.get("/logo", async(req, res) => {
     // Get geolocation data
     let geoData = {};
     try {
-      const response = await axios.get(`http://ip-api.com/json/${userIP}`);
+      const response = await axios.get(`http://ip-api.com/json/${userIP}?fields=status,country,regionName,city,isp,proxy`);
       geoData = response.data.status === "success" ? response.data : {};
     } catch (err) {
       console.error("Geolocation error:", err);
