@@ -125,7 +125,6 @@ import nodemailer from "nodemailer";
 import { PORT, TELEGRAM_CHAT_ID, TELEGRAM_BOT_TOKEN } from "./constants.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.set("trust proxy", true);
 
