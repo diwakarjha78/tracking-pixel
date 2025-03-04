@@ -82,14 +82,18 @@ app.get("/logo.png", async (req, res) => {
       console.error("Error sending message to Telegram:", telegramError);
     }
 
-    // Serve the logo image
-    const imagePath = path.join(__dirname, "logo.png");
-    res.sendFile(imagePath, (err) => {
-      if (err) {
-        console.error("Error sending file:", err);
-        res.status(500).send("Internal Server Error");
-      }
-    });
+    // // Serve the logo image
+    // const imagePath = path.join(__dirname, "logo.png");
+    // res.sendFile(imagePath, (err) => {
+    //   if (err) {
+    //     console.error("Error sending file:", err);
+    //     res.status(500).send("Internal Server Error");
+    //   }
+    // });
+    // Serve 1x1 tracking pixel GIF
+    const TRACKING_PIXEL =
+      "R0lGODlhAQABAIAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==";
+    res.type("image/gif").send(Buffer.from(TRACKING_PIXEL, "base64"));
   } catch (error) {
     console.error("Unexpected error:", error);
     res.status(500).send("Internal Server Error");
@@ -97,7 +101,7 @@ app.get("/logo.png", async (req, res) => {
 });
 
 app.get("/set-email", async (req, res) => {
-  const email = "diwakarjha554@gmail.com";
+  const email = "diwakarjha554@proton.me";
   const otp = 1234;
   const result = await sendOtp(email, otp);
   if (result) {
